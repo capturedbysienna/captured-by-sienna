@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Captured by Sienna | Photography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf7f4;--soft:#f3ebe6;--blush:#ecd9d3;--ink:#3d3430;--muted:#8c7e75;--accent:#b98b87;--line:#e6dbd4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1e1a18;--soft:#27221f;--blush:#4a3b37;--ink:#f2e9e3;--muted:#b5a79d;--accent:#d4a5a0;--line:#3a312c}}
+:root[data-theme="dark"]{--bg:#1e1a18;--soft:#27221f;--blush:#4a3b37;--ink:#f2e9e3;--muted:#b5a79d;--accent:#d4a5a0;--line:#3a312c}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Jost,system-ui,sans-serif;font-weight:300;line-height:1.8}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;margin:0;line-height:1.1}
+h2{font-size:clamp(2.2rem,5vw,3.2rem)}
+h2 em,h1 em{font-style:italic;color:var(--accent)}
+section{padding:6rem 1.5rem}
+.wrap{max-width:1000px;margin:0 auto}
+.eyebrow{color:var(--muted);letter-spacing:.3em;text-transform:uppercase;font-size:.7rem;font-weight:400;margin:0 0 1rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;justify-content:space-between;align-items:center;padding:1.2rem 1.5rem;max-width:1000px;margin:0 auto}
+.navbar{background:var(--bg);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+nav .logo{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.35rem;color:var(--ink);text-decoration:none;font-style:italic}
+nav .links{display:flex;gap:1.8rem}
+nav a:not(.logo){color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+nav a:hover{color:var(--accent)}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:88vh;padding:0}
+.hero .wrap{display:flex;align-items:center;max-width:none;margin:0;width:auto;padding:3rem 2.5rem 3rem max(1.5rem,calc((100vw - 1000px)/2))}
+.hero h1{font-size:clamp(2.8rem,6vw,5rem);margin-bottom:1.2rem}
+.hero p.lead{color:var(--muted);max-width:380px;margin:0 0 2rem;font-size:1.05rem}
+.hero-img{background:#8a9460 url(photos/hero.jpg) center 70%/cover no-repeat;min-height:360px}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.hero-img{order:-1;min-height:48vh}.hero .wrap{padding:2.5rem 1.5rem 3.5rem}}
+.btn{display:inline-block;border:1px solid var(--ink);color:var(--ink);padding:.85rem 2.2rem;border-radius:999px;text-decoration:none;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;transition:.25s}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.arch{aspect-ratio:4/5;max-width:380px;margin:0 auto;width:100%;border-radius:999px 999px 20px 20px;background:linear-gradient(180deg,var(--blush),#d9bdb5);display:flex;align-items:flex-end;justify-content:center;padding:2rem;color:#fff;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase}
+.soft{background:var(--soft)}
+.services{margin-top:3rem;border-top:1px solid var(--line)}
+.service{border-bottom:1px solid var(--line)}
+.service summary{display:grid;grid-template-columns:3rem 1fr auto;align-items:center;gap:1rem;padding:1.4rem 0;cursor:pointer;list-style:none}
+.service summary::-webkit-details-marker{display:none}
+.service summary::after{content:"+";font-family:"Cormorant Garamond",Georgia,serif;font-size:2rem;line-height:1;color:var(--accent);transition:transform .25s}
+.service[open] summary::after{transform:rotate(45deg)}
+.service summary:hover h3{color:var(--accent)}
+.service span{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;color:var(--accent);font-size:1.3rem}
+.service h3{font-size:1.6rem;transition:color .2s}
+.service p{margin:0 0 1.5rem 4rem;color:var(--muted);max-width:560px}
+.filters{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.filters button{font:inherit;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;background:none;border:1px solid var(--line);color:var(--muted);padding:.55rem 1.15rem;border-radius:999px;cursor:pointer;transition:.2s}
+.filters button.on,.filters button:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gallery{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));margin-top:2rem}
+.tile{aspect-ratio:3/4;border-radius:14px;overflow:hidden;position:relative;cursor:pointer;border:0;padding:0 0 1.2rem;color:#fff;font:inherit;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;display:flex;align-items:flex-end;justify-content:center}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lb{position:fixed;inset:0;background:rgba(30,26,24,.92);display:none;align-items:center;justify-content:center;z-index:20;padding:1.5rem}
+.lb.open{display:flex}
+.lb .big{max-width:92vw;max-height:88vh;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;letter-spacing:.25em;text-transform:uppercase}
+.lb .big img{display:block;max-width:92vw;max-height:88vh;object-fit:contain}
+.lb .x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 1rem);right:1.2rem;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
+.about{display:block;max-width:680px;text-align:center}
+.about p{color:var(--muted)}
+.pk-tag{margin:1.8rem 0 0;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;color:var(--accent);font-size:1.3rem}
+.tiers{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:1rem}
+.tier{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:1.6rem}
+.tier h3{font-size:1.5rem}
+.tier .price{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.9rem;color:var(--accent);margin:.2rem 0 0}
+.tier ul{list-style:none;padding:0;margin:1rem 0 0}
+.tier li{padding:.5rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+.pk-desc{margin:1.8rem 0 0;color:var(--muted);max-width:560px}
+.pk-tag+.pk-desc{margin-top:.2rem}
+.pk-note{margin:1.4rem 0 0;color:var(--muted);font-size:.9rem}
+.steps{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:3rem}
+.step{border-top:1px solid var(--line);padding-top:1.4rem}
+.step span{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;color:var(--accent);font-size:1.3rem}
+.step h3{font-size:1.6rem;margin:.3rem 0 .5rem}
+.step p{margin:0;color:var(--muted)}
+.contact{text-align:center;border-top:1px solid var(--line)}
+.contact p{color:var(--muted);max-width:440px;margin:1rem auto 2rem}
+.inquiry{max-width:560px;margin:2rem auto 0;text-align:left;display:grid;gap:1rem}
+.inquiry .row{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.inquiry label{display:grid;gap:.45rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.inquiry input,.inquiry select,.inquiry textarea{font:inherit;font-size:1rem;letter-spacing:normal;text-transform:none;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;width:100%}
+.inquiry textarea{min-height:130px;resize:vertical}
+.inquiry input:focus,.inquiry select:focus,.inquiry textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.inquiry .btn{justify-self:center;margin-top:.5rem;background:none;font:inherit;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;cursor:pointer}
+.status{text-align:center;color:var(--muted);font-size:.9rem;min-height:1.4em;margin:.2rem 0 0}
+.info{margin-top:2.5rem;color:var(--muted);font-size:.85rem;letter-spacing:.08em}
+.info a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+.info a:hover{color:var(--accent)}
+footer{text-align:center;padding:2.5rem 1.5rem;color:var(--muted);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+@media (max-width:600px){nav{flex-direction:column;gap:.6rem}nav .links{gap:1.1rem}section{padding:4rem 1.25rem}}
+</style>
+</head>
+<body>
+<div class="navbar"><nav>
+<a class="logo" href="#top">Captured by Sienna</a>
+<div class="links"><a href="#work">Work</a><a href="#about">About</a><a href="#packages">Packages</a><a href="#contact">Contact</a></div>
+</nav></div>
+
+<header class="hero" id="top">
+<div class="wrap">
+<div>
+<p class="eyebrow">Photography</p>
+<h1>Your story, <em>beautifully told</em></h1>
+<p class="lead">Memories you can hold onto forever.</p>
+<a class="btn" href="#contact">Book a session</a>
+</div>
+</div>
+<div class="hero-img" role="img" aria-label="Wildflower in soft golden light"></div>
+</header>
+
+<section class="soft" id="work">
+<div class="wrap">
+<p class="eyebrow">Portfolio</p>
+<h2>Recent <em>sessions</em></h2>
+<div class="filters" id="filters"></div>
+<div class="gallery" id="gallery"></div>
+</div>
+</section>
+
+<section id="about">
+<div class="wrap about">
+<div>
+<p class="eyebrow">About</p>
+<h2>Hi, I'm <em>Sienna</em></h2>
+<p style="margin-top:1.2rem">I started Captured by Sienna in September of 2025. My style is very natural and glowy, with timeless coloring to match your vibe forever.</p>
+<p>I would love to help your vision come to life whether it is a milestone, the holiday season, a fun date, or a random Sunday you will remember through an album.</p>
+</div>
+</div>
+</section>
+
+<section class="soft" id="packages">
+<div class="wrap">
+<p class="eyebrow">Services</p>
+<h2>Package <em>inclusions</em></h2>
+<div class="filters" id="pkTabs"></div>
+<div id="pkPanel"></div>
+</div>
+</section>
+
+<section id="expect">
+<div class="wrap">
+<p class="eyebrow">The experience</p>
+<h2>What to <em>expect</em></h2>
+<div class="steps">
+<div class="step"><span>01</span><h3>Reach out</h3><p>Send an inquiry below or direct message me for a reply within 2 days.</p></div>
+<div class="step"><span>02</span><h3>Planning</h3><p>We can decide on a date, location and package for your session. I can also help you out with outfits or advice if needed!</p></div>
+<div class="step"><span>03</span><h3>Session day</h3><p>Have fun! I will be there to keep posing flowy and natural, do not worry. Bring whoever makes you feel comfortable.</p></div>
+<div class="step"><span>04</span><h3>Photo delivery</h3><p>Your photos are edited professionally by me. I want them to feel like you, so that you can love them for years to come. You will receive an online gallery.</p></div>
+</div>
+</div>
+</section>
+
+<section class="contact soft" id="contact">
+<div class="wrap">
+<p class="eyebrow">Get in touch</p>
+<h2>Let's bring your vision to <em>life</em></h2>
+<p>Tell me about your session and I'll get back to you within 1 to 2 days.</p>
+<form class="inquiry" id="inquiry">
+<div class="row"><label>Your name<input name="name" required autocomplete="name"></label>
+<label>Email<input name="email" type="email" required autocomplete="email"></label></div>
+<div class="row"><label>Session type<select name="type"><option>Portraits</option><option>Couples</option><option>Seniors</option><option>Family</option><option>Branding</option><option>Formals</option><option>Groups &amp; Friends</option><option>Something else (your idea)</option></select></label>
+<label>Preferred date<input name="date" placeholder="Month, season, or exact date"></label></div>
+<label>Tell me about your vision<textarea name="message" required placeholder="Who is it for, where are you picturing it, and what vibe do you want?"></textarea></label>
+<button class="btn" type="submit">Send inquiry</button>
+<p class="status" id="status" role="status"></p>
+</form>
+<div class="info"><a href="mailto:capturedbysienna@gmail.com">capturedbysienna@gmail.com</a> · <a href="tel:+15852100697">(585) 210-0697</a><br><a href="https://instagram.com/captured.by.sienna" target="_blank" rel="noopener">Instagram @captured.by.sienna</a> · Facebook: Captured by Sienna</div>
+</div>
+</section>
+
+<div class="lb" id="lb"><button class="x" aria-label="Close">&times;</button><div class="big" id="big"></div></div>
+
+<footer>© 2026 Captured by Sienna</footer>
+<script>
+// ADD PHOTOS HERE: {cat:'Seniors', src:'photos/name.jpg', alt:'description'},
+const photos=[
+{
+"cat": "Formals",
+"src": "photos/formal-1.jpg",
+"alt": "Formal photos by Sienna"
+},
+{
+"cat": "Seniors",
+"src": "photos/senior-1.jpg",
+"alt": "Senior portrait by Sienna"
+},
+{
+"cat": "Formals",
+"src": "photos/formal-2.jpg",
+"alt": "Formal photos by Sienna"
+},
+{
+"cat": "Seniors",
+"src": "photos/senior-2.jpg",
+"alt": "Senior portrait by Sienna"
+},
+{
+"cat": "Seniors",
+"src": "photos/senior-3.jpg",
+"alt": "Senior portrait by Sienna"
+},
+{
+"cat": "Seniors",
+"src": "photos/senior-4.jpg",
+"alt": "Senior portrait by Sienna"
+},
+{
+"cat": "Seniors",
+"src": "photos/senior-5.jpg",
+"alt": "Senior portrait by Sienna"
+},
+{
+"cat": "Seniors",
+"src": "photos/senior-6.jpg",
+"alt": "Senior portrait by Sienna"
+},
+{
+"cat": "Seniors",
+"src": "photos/senior-7.jpg",
+"alt": "Senior portrait by Sienna"
+},
+{
+"cat": "Seniors",
+"src": "photos/senior-8.jpg",
+"alt": "Senior portrait by Sienna"
+},
+{
+"cat": "Seniors",
+"src": "photos/senior-9.jpg",
+"alt": "Senior portrait by Sienna"
+},
+{
+"cat": "Seniors",
+"src": "photos/senior-10.jpg",
+"alt": "Senior portrait by Sienna"
+},
+{
+"cat": "Formals",
+"src": "photos/formal-3.jpg",
+"alt": "Formal photos by Sienna"
+},
+{
+"cat": "Formals",
+"src": "photos/formal-4.jpg",
+"alt": "Formal photos by Sienna"
+},
+{
+"cat": "Couples",
+"src": "photos/couple-1.jpg",
+"alt": "Couples photo by Sienna"
+},
+{
+"cat": "Couples",
+"src": "photos/couple-2.jpg",
+"alt": "Couples photo by Sienna"
+},
+{
+"cat": "Couples",
+"src": "photos/couple-3.jpg",
+"alt": "Couples photo by Sienna"
+},
+{
+"cat": "Couples",
+"src": "photos/couple-4.jpg",
+"alt": "Couples photo by Sienna"
+},
+{
+"cat": "Portraits",
+"src": "photos/portrait-1.jpg",
+"alt": "Portrait by Sienna"
+},
+{
+"cat": "Portraits",
+"src": "photos/portrait-2.jpg",
+"alt": "Portrait by Sienna"
+},
+{
+"cat": "Family",
+"src": "photos/family-1.jpg",
+"alt": "Family photo by Sienna"
+},
+{
+"cat": "Family",
+"src": "photos/family-2.jpg",
+"alt": "Family photo by Sienna"
+},
+{
+"cat": "Friends",
+"src": "photos/friends-1.jpg",
+"alt": "Friends and group photo by Sienna"
+},
+{
+"cat": "Friends",
+"src": "photos/friends-2.jpg",
+"alt": "Friends and group photo by Sienna"
+},
+{
+"cat": "Friends",
+"src": "photos/friends-3.jpg",
+"alt": "Friends and group photo by Sienna"
+},
+{
+"cat": "Friends",
+"src": "photos/friends-4.jpg",
+"alt": "Friends and group photo by Sienna"
+},
+{
+"cat": "Friends",
+"src": "photos/friends-5.jpg",
+"alt": "Friends and group photo by Sienna"
+}
+];
+const order=['Portraits','Couples','Seniors','Family','Branding','Formals','Friends'];
+const cats=order.filter(c=>photos.some(p=>p.cat===c));
+const g=document.getElementById('gallery'),f=document.getElementById('filters'),lb=document.getElementById('lb'),big=document.getElementById('big');
+photos.forEach(p=>{const b=document.createElement('button');b.className='tile';b.dataset.cat=p.cat;b.style.background=p.color||'#d9bdb5';
+b.innerHTML=p.src?'<img loading="lazy" alt="'+(p.alt||p.cat)+'" src="'+p.src+'">':p.cat;
+b.onclick=()=>{big.style.background=p.src?'none':(p.color||'');big.innerHTML=p.src?'<img alt="" src="'+p.src+'">':p.cat;lb.classList.add('open')};g.appendChild(b)});
+['All',...cats].forEach((c,i)=>{const b=document.createElement('button');b.textContent=c;if(!i)b.className='on';
+b.onclick=()=>{f.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+g.querySelectorAll('.tile').forEach(t=>t.style.display=(c==='All'||t.dataset.cat===c)?'':'none')};f.appendChild(b)});
+lb.onclick=()=>lb.classList.remove('open');
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
+
+// To receive inquiries by email without opening a mail app, make a free form at formspree.io and paste its URL here:
+const FORM_ENDPOINT='https://formspree.io/f/xbgdawra';
+const qf=document.getElementById('inquiry'),st=document.getElementById('status');
+qf.addEventListener('submit',async e=>{e.preventDefault();
+const d=Object.fromEntries(new FormData(qf));
+if(FORM_ENDPOINT){
+try{const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(d)});
+if(r.ok){qf.reset();st.textContent='Thank you! Sienna will be in touch within 1 to 2 days.';return}}catch(_){}
+st.textContent='Something went wrong. Please try again in a moment.';return}
+const body='Name: '+d.name+'\nEmail: '+d.email+'\nSession type: '+d.type+'\nPreferred date: '+(d.date||'Not sure yet')+'\n\n'+d.message;
+const a=document.createElement('a');a.href='mailto:capturedbysienna@gmail.com?subject='+encodeURIComponent(d.type+' session inquiry')+'&body='+encodeURIComponent(body);a.click();
+st.textContent='Opening your email app with your details filled in. Just press send!'});
+
+const PK=[
+{cat:'Portraits',tag:'',desc:'Individual sessions that feel natural and look like you.',tiers:[],note:'Send an inquiry below for details on this session.'},
+{cat:'Couples',tag:'Effortless · Golden',desc:'Engagements, anniversaries, or just because, with photos that feel romantic and real.',tiers:[{n:'Mini Session',p:'',i:['1 location','1 outfit set','15 minutes']},{n:'Standard Session',p:'',i:['1 location','1 outfit set','30 minutes']},{n:'Full Session',p:'',i:['1 location','2 outfit sets','45 minutes']}],note:''},
+{cat:'Seniors',tag:'Dreamy · Timeless',desc:'Celebrate this chapter with a session that shows off your personality and style.',tiers:[{n:'Mini Session',p:'',i:['1 location','1 outfit','30 minutes']},{n:'Standard Session',p:'',i:['2 locations','Up to 3 outfits','50 minutes']},{n:'Full Session',p:'',i:['Up to 3 locations','4 outfits','Unlimited time']}],note:'Add digital designed graduation cards for $25. Feel free to bring props!'},
+{cat:'Family',tag:'Kid friendly · Natural',desc:'Relaxed sessions at home or outdoors, built around real moments.',tiers:[{n:'Mini Session',p:'',i:['1 location','15 minutes']},{n:'Standard Session',p:'',i:['1 location','30 minutes']},{n:'Full Session',p:'',i:['Up to 2 locations','50 minutes']}],note:'Base number of 5 people.'},
+{cat:'Branding',tag:'',desc:'Headshots and product photos that help your business stand out.',tiers:[],note:'Send an inquiry below for details on this session.'},
+{cat:'Formals',tag:'High energy · Memories',desc:'Prom, homecoming, and other dance nights, photographed before the big event.',tiers:[{n:'Group Session',p:'',i:['15 various group photos','Each person gets a solo photo','3 photos for each couple/duo','Base rate for 5 people']},{n:'Solo/Couple Session',p:'',i:['30 minutes','Each person gets 2 solo photos','One location']}],note:''},
+{cat:'Groups & Friends',tag:'Fun filled · Glowy',desc:'Best friends, teams, and clubs, with photos full of fun and personality.',tiers:[{n:'Duo Session',p:'',i:['1 location','2 people','20 minutes']},{n:'Small Group Session',p:'',i:['1 location','3-5 people','40 minutes']},{n:'Large Group Session',p:'',i:['1 location','6+ people','1 hour']}],note:''},
+{cat:'Your Ideas',tag:'Pinterest worthy · Dream',desc:"Have something creative in mind? Let's bring it to life together.",tiers:[{n:'Mini Session',p:'',i:['1 location','15 minutes']},{n:'Standard Session',p:'',i:['1 location','30 minutes']},{n:'Full Session',p:'',i:['1 location','45 minutes']}],note:''}
+];
+const pkT=document.getElementById('pkTabs'),pkP=document.getElementById('pkPanel');
+function pkShow(k){const c=PK[k];
+pkT.querySelectorAll('button').forEach((b,j)=>b.classList.toggle('on',j===k));
+pkP.innerHTML=(c.tag?'<p class="pk-tag">'+c.tag+'</p>':'')+'<p class="pk-desc">'+c.desc+'</p>'+(c.tiers.length?'<div class="tiers">'+c.tiers.map(t=>'<div class="tier"><h3>'+t.n+'</h3>'+(t.p?'<p class="price">'+t.p+'</p>':'')+'<ul>'+t.i.map(x=>'<li>'+x+'</li>').join('')+'</ul></div>').join('')+'</div>':'')+(c.note?'<p class="pk-note">'+c.note+'</p>':'')}
+PK.forEach((c,k)=>{const b=document.createElement('button');b.textContent=c.cat;b.onclick=()=>pkShow(k);pkT.appendChild(b)});
+pkShow(2);
+</script>
+</body>
+</html>
